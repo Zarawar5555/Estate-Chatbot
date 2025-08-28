@@ -1035,6 +1035,7 @@ if __name__ == '__main__':
     logger.info("   - /properties (GET)")
     logger.info("   - /clear-processed (POST)")
 
-
-    port = int(os.environ.get("PORT", 5000))  # Railway provides PORT
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
+
