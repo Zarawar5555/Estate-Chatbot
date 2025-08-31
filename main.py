@@ -1034,15 +1034,11 @@ if __name__ == '__main__':
     logger.info("   - /test-ai (GET)")
     logger.info("   - /properties (GET)")
     logger.info("   - /clear-processed (POST)")
+    
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
 
-   port = int(os.getenv('PORT', 5000))
-    debug = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
-    if os.getenv('RAILWAY_ENVIRONMENT') or os.getenv('RENDER') or os.getenv('HEROKU'):
-        logger.info(f"🌐 Starting in production mode on port {port}")
-        app.run(host='0.0.0.0', port=port, debug=False)
-    else:
-        logger.info(f"🔧 Starting in development mode on port {port}")
-        app.run(host='0.0.0.0', port=port, debug=debug)
+
 
 
 
